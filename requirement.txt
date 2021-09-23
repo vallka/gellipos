@@ -17,7 +17,7 @@ inflection==0.5.1
 itypes==1.2.0
 Jinja2==3.0.1
 jinja2-django-tags==0.5
-mariadb==1.0.7
+#mariadb==1.0.7
 MarkupSafe==2.0.1
 mysql-connector-python==8.0.26
 mysqlclient==2.0.3
@@ -25,7 +25,7 @@ packaging==21.0
 pefile==2021.9.3
 Pillow==8.3.2
 protobuf==3.18.0
-pyinstaller-hooks-contrib==2021.3
+#pyinstaller-hooks-contrib==2021.3
 pyparsing==2.4.7
 pytz==2021.1
 pywin32-ctypes==0.2.0
