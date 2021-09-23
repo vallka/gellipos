@@ -114,6 +114,7 @@ function calc_total() {
 
 django.jQuery(function(){
     django.jQuery( "input" ).blur();
+    django.jQuery( "#id_customer_name" ).blur();
 
     django.jQuery('.dynamic-orderdetail_set select').change(calc_total);
     django.jQuery('.dynamic-orderdetail_set input').change(calc_total);
