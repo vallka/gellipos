@@ -1,0 +1,29 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+django = "*"
+mysqlclient = "*"
+whitenoise = "*"
+requests = "*"
+uritemplate = "*"
+sentry-sdk = "*"
+django-debug-toolbar = "*"
+jinja2 = "*"
+jinja2-django-tags = "*"
+update = "*"
+pillow = "*"
+beautifulsoup4 = "*"
+gunicorn = "*"
+mysql-connector-python = "*"
+mariadb = "*"
+djangorestframework = "*"
+drf-yasg = "*"
+django-cors-headers = "*"
+
+[requires]
+python_version = "3"
