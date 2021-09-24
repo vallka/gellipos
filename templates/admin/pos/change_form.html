@@ -12,8 +12,33 @@
  {{ opts.id }}
 
  -->
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/barcodes/JsBarcode.ean-upc.min.js"></script>
 {% endblock %}
- 
+
+{
+{% block extrastyle %}{{ block.super }}
+<style>
+.dynamic-orderdetail_set select {
+    width: 380px;
+}   
+.dynamic-orderdetail_set a.change-related, 
+.dynamic-orderdetail_set a.add-related, 
+.dynamic-orderdetail_set a.delete-related 
+{
+    display: none;
+}
+
+.dynamic-orderdetail_set .field-product p {
+    height: 20px;
+    overflow: hidden;
+}
+
+.dynamic-orderdetail_set td.original p {
+    display: none;
+}
+    </style>
+{% endblock %}
+
 
 {% block submit_buttons_bottom %}
 <hr>
