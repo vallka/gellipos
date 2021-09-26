@@ -6,7 +6,7 @@ from .models import *
 #admin.site.register(Product)
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['id_product','name','reference','barcode_tag','quantity','sold']
+    list_display = ['id_product','name','reference','barcode_tag','price','sold','quantity']
     list_display_links = list_display
     search_fields = ['id_product','reference','name','ean13', ]
     readonly_fields = ['barcode_tag','sold']
