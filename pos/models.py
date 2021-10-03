@@ -3,6 +3,10 @@ from django.utils.html import mark_safe
 
 # Create your models here.
 class Product(models.Model):
+    class Meta:
+        ordering = ['reference']
+
+  
     id_product = models.IntegerField('id',primary_key=True)
     reference = models.CharField('reference',max_length=100)
     name  = models.CharField('name',max_length=500)

@@ -143,49 +143,47 @@ django.jQuery(function(){
         django.jQuery( "#id_customer_name" ).blur();
     },200);
 
-    django.jQuery('.dynamic-orderdetail_set select').change(calc_total);
-    django.jQuery('.dynamic-orderdetail_set input').change(calc_total);
-    django.jQuery('.dynamic-orderdetail_set input').change(calc_total);
+    if (django.jQuery('#id_status').val() == 0) {
 
-    django.jQuery('#id_discount_pc').click(calc_total);
-    django.jQuery('#id_discount_gbp').click(calc_total);
-    django.jQuery('#id_discount_pc').blur(calc_total);
-    django.jQuery('#id_discount_gbp').blur(calc_total);
+        django.jQuery('#id_discount_pc').click(calc_total);
+        django.jQuery('#id_discount_gbp').click(calc_total);
+        django.jQuery('#id_discount_pc').blur(calc_total);
+        django.jQuery('#id_discount_gbp').blur(calc_total);
 
-    django.jQuery('tr.add-row a').click(function() {
-        django.jQuery('.dynamic-orderdetail_set').last().find('select').change(calc_total);
-        django.jQuery('.dynamic-orderdetail_set').last().find('input').change(calc_total);
+        django.jQuery('tr.add-row a').click(function() {
+            django.jQuery('.dynamic-orderdetail_set').last().find('select').change(calc_total);
+            django.jQuery('.dynamic-orderdetail_set').last().find('input').change(calc_total);
 
-    });
+        });
 
-
-    django.jQuery( "body" ).keyup(function( event ) {
-        //console.log( event.originalEvent.key + ' --- ' + code);
-    
-        if (event.originalEvent.key=='0' ||
-            event.originalEvent.key=='1' ||
-            event.originalEvent.key=='2' ||
-            event.originalEvent.key=='3' ||
-            event.originalEvent.key=='4' ||
-            event.originalEvent.key=='5' ||
-            event.originalEvent.key=='6' ||
-            event.originalEvent.key=='7' ||
-            event.originalEvent.key=='8' ||
-            event.originalEvent.key=='9') {
-                code += event.originalEvent.key;
-        }
-    
-        else if (event.originalEvent.key=='Enter' && code.length==13) {
-            event.preventDefault();
-            const ccode = code;
-            code = '';
-            process(ccode);
-        }
-        else {
-            code = '';
-        }
-    
-    });
+        django.jQuery( "body" ).keyup(function( event ) {
+            //console.log( event.originalEvent.key + ' --- ' + code);
+        
+            if (event.originalEvent.key=='0' ||
+                event.originalEvent.key=='1' ||
+                event.originalEvent.key=='2' ||
+                event.originalEvent.key=='3' ||
+                event.originalEvent.key=='4' ||
+                event.originalEvent.key=='5' ||
+                event.originalEvent.key=='6' ||
+                event.originalEvent.key=='7' ||
+                event.originalEvent.key=='8' ||
+                event.originalEvent.key=='9') {
+                    code += event.originalEvent.key;
+            }
+        
+            else if (event.originalEvent.key=='Enter' && code.length==13) {
+                event.preventDefault();
+                const ccode = code;
+                code = '';
+                process(ccode);
+            }
+            else {
+                code = '';
+            }
+        
+        });
+    }
 
 });
 
