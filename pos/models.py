@@ -4,7 +4,7 @@ from django.utils.html import mark_safe
 # Create your models here.
 class Product(models.Model):
     id_product = models.IntegerField('id',primary_key=True)
-    reference = models.CharField('reference',max_length=100)    
+    reference = models.CharField('reference',max_length=100)
     name  = models.CharField('name',max_length=500)
     price = models.DecimalField('price',max_digits=8, decimal_places=2)
     ean13 = models.TextField('ean13',blank=True,default='')
@@ -20,7 +20,7 @@ class Product(models.Model):
         return mark_safe(f"<svg id='barcode_{self.id_product}'></svg>" +
                 "<script>"+
                 f"JsBarcode('#barcode_{self.id_product}', '{self.ean13_main()}',"+
-                "{height: 30,width: 2,fontSize: 12,font: 'Arial','textMargin':0,'margin':1,'flat':true});"+
+                "{height: 60,width: 2,fontSize: 12,font: 'Arial','textMargin':0,'margin':1,'flat':true});"+
                 "</script>"
         )
 
@@ -31,7 +31,7 @@ class Product(models.Model):
             print(prod.order,prod.order.status,prod.quantity)
             if prod.order.status==Order.Status.PAID:
                 qnt += prod.quantity
-        
+
         return qnt
 
 
@@ -70,11 +70,11 @@ class Order(models.Model):
     @classmethod
     def from_db(cls, db, field_names, values):
         instance = super().from_db(db, field_names, values)
-        
+
         # save original values, when model is loaded from database,
         # in a separate attribute on the model
         instance._loaded_values = dict(zip(field_names, values))
-        
+
         return instance
 
     def save(self, *args, **kwargs):
@@ -84,7 +84,7 @@ class Order(models.Model):
                 # do something
                 need_recalc = True
 
-        super().save(*args, **kwargs)        
+        super().save(*args, **kwargs)
 
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order,on_delete=models.CASCADE,related_name='orderdetail_set')
